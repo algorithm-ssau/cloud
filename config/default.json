@@ -1,0 +1,4 @@
+{
+  "port": 7070,
+ "mongooseUrl": "mongodb+srv://admin:ieLva1s7UQBMnlg5@cvapp.ijwti.mongodb.net/CvApp?retryWrites=true&w=majority"
+}
