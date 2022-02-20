@@ -1,0 +1,25 @@
+{
+  "name": "mern_cv_app",
+  "version": "1.0.0",
+  "description": "mern cv app for create CV",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js"
+  },
+  "keywords": [
+    "mern",
+    "cv"
+  ],
+  "author": "Danila Sladkov, Andrey Aganin, Sergey Grak, Anpilogov Egor",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.7",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
