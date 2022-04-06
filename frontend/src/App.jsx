@@ -3,8 +3,8 @@
 function App() {
   return (
     <div className="App">
-     Егр красавчик как обычно ничего не работает
-
+        <h1>This is our Cloud on MERN stack.</h1>
+        <h3>developing...</h3>
     </div>
   );
 }
