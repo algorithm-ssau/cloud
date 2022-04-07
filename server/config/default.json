@@ -1,4 +1,5 @@
 {
   "port": 8080,
-  "databaseURL": "mongodb+srv://admin:ieLva1s7UQBMnlg5@cvapp.ijwti.mongodb.net/CvApp?retryWrites=true&w=majority"
+  "databaseURL": "mongodb+srv://admin:ieLva1s7UQBMnlg5@cvapp.ijwti.mongodb.net/CvApp?retryWrites=true&w=majority",
+  "secretKey": "valet-egr"
 }
