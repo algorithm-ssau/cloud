@@ -1,11 +1,11 @@
 const express = require('express')
 const config = require('config')
 const mongoose = require('mongoose')
-//
+
 const app = express()
 
 const PORT = config.get('port') || 8080 //get port from '/config/default.json'
-// const user = require('../models/user')
+const user = require('../models/user')
 
 const start = async () => {
 	try{
