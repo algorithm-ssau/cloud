@@ -6,7 +6,7 @@ const authRouter = require('./routes/auth.routes.js')
 const app = express()
 
 const PORT = config.get('port') || 8080 //get port from '/config/default.json'
-// const user = require('../models/user')
+//const user = require('./models/user')
 
 app.use(express.json())
 app.use('/api/auth',authRouter)
