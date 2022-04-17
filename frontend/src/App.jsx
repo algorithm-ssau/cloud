@@ -1,10 +1,9 @@
-
+import React from "react";
 
 function App() {
   return (
     <div className="App">
-     Егр красавчик как обычно ничего не работает
-
+     Federico Fellini
     </div>
   );
 }
