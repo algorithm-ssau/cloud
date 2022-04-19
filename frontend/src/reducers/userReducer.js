@@ -5,7 +5,6 @@ const defaultState = {
 
 export const userReducer = (state=defaultState, actions) => {
 	switch (actions.type){
-
 		default:
 			return state
 	}

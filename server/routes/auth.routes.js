@@ -6,7 +6,6 @@ const {check, validationResult} = require("express-validator")
 const router = new Router()
 const jwt = require('jsonwebtoken')
 
-
 router.post('/registration',
 	[
 		check('email', "Uncorrect email").isEmail(),
@@ -70,6 +69,5 @@ router.post('/login', async (req, res) => {
 		res.send({message: "Server error"})
 	}
 })
-
 
 module.exports = router
