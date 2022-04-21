@@ -1,0 +1,36 @@
+@import "../../utils/colors";
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+html{
+  height: 100%;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: $backgroundColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.app{
+  width: 970px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#root{
+  height: 100%;
+}
