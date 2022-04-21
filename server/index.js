@@ -18,7 +18,7 @@ const start = async () => {
 			console.log(`Server is working on ${PORT}...`)
 		})
 	} catch (e) {
-		console.log(`Server is not started`)
+		console.log(`Server is not started + ${e.message}`)
 	}
 }
 
