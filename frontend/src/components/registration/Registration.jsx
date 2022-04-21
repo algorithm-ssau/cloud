@@ -13,7 +13,7 @@ const Registration = () => {
 				<Input type='text' placeholder='Name'/>
 				<Input type='text' placeholder='Surname'/>
 				<Input type='text' placeholder='Email'/>
-				<Input type='text' placeholder='Password'/>
+				<Input type='password' placeholder='Password'/>
 			</div>
 
 			<div className="login_button">Already have an account?</div>
