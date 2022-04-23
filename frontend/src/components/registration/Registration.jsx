@@ -2,6 +2,7 @@ import React from 'react';
 import './registration.scss'
 import logo from '../../assets/img/Vector.svg'
 import Input from "../../utils/input/Input";
+import Button from "../../utils/button/Button";
 
 const Registration = () => {
 	return (
@@ -17,7 +18,7 @@ const Registration = () => {
 			</div>
 
 			<div className="login_button">Already have an account?</div>
-			<button className='register_button'>Register</button>
+			<Button>Registration</Button>
 		</div>
 	);
 };
