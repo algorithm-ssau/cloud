@@ -4,6 +4,7 @@ import './app.scss'
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Registration from "../registration/Registration";
 import Home from "../offer/Home";
+import Login from "../login/Login";
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 				<Home/>
 				<Switch>
 					<Route path='/registration' component={Registration}/>
+					<Route path='/login' component={Login}/>
 				</Switch>
 			</BrowserRouter>
 		</div>

@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  color: white;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+
+  .title {
+    margin: 15px 0 50px 0;
+    font-weight: 700;
+    font-size: 31px;
+    cursor: default;
+  }
+
+  .input_container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+
+    width: 541px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .login_button {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    cursor: pointer;
+    align-self: flex-end;
+
+    transition: color 0.5s ease;
+  }
+
+  .login_button:hover{
+    color: #2F86F4;
+  }
+
+  Button{
+    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: background 0.5s ease;
+    width: 541px;
+    height: 44px;
+  }
+
+}
