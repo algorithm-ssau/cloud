@@ -1,7 +1,7 @@
 import React from 'react';
 import './home.scss'
 import Button from "../../utils/button/Button";
-import diskLogo from '../../assets/img/disk.png'
+import diskLogo from '../../assets/img/disk.svg'
 import {NavLink} from "react-router-dom";
 
 const Home = () => {
