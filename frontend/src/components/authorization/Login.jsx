@@ -1,18 +1,21 @@
 import React, {useState} from 'react';
-import './login.scss'
+import './authorization.scss'
 import logo from '../../assets/img/Vector.svg'
 import Input from "../../utils/input/Input";
 import Button from "../../utils/button/Button";
-import {registration} from "../../actions/reg";
+import {login, registration} from "../../actions/reg";
+import {NavLink} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 const Login = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+	const dispatch = useDispatch()
 
 	return (
-		<div className='login-form'>
+		<div className='auth-form'>
 			<img src={logo} alt='' className='logo' width='43px' height='27px'/>
-			<span className="title">Create an account</span>
+			<span className="title">Log into account</span>
 			<form>
 				<div className='input_container'>
 					<Input value={email}
@@ -24,9 +27,9 @@ const Login = () => {
 					       type='password'
 					       placeholder='Password'/>
 				</div>
-				<div className="login_button">Register</div>
+				<span className="redirect_button"><NavLink to={'/registration'}>Register</NavLink></span>
 			</form>
-			<span onClick={() => registration(email,password)}>
+			<span onClick={() => dispatch(login(email,password))}>
 				<Button>Log in</Button>
 			</span>
 		</div>

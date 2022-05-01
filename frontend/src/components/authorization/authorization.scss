@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-.registration-form {
+.auth-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +18,7 @@
 
 
   .title {
-    margin: 15px 0 50px 0;
+    margin: 15px 0 20px 0;
     font-weight: 700;
     font-size: 31px;
     cursor: default;
@@ -35,19 +35,17 @@
     overflow: hidden;
   }
 
-  .login_button {
+  .redirect_button {
+    display: block;
     margin-top: 20px;
     font-weight: 400;
     font-size: 20px;
     cursor: pointer;
-    align-self: flex-end;
+    //align-self: flex-end;
 
     transition: color 0.5s ease;
   }
 
-  .login_button:hover{
-    color: #2F86F4;
-  }
 
   Button{
     margin-top: 20px;

@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import './registration.scss'
+import './authorization.scss'
 import logo from '../../assets/img/Vector.svg'
 import Input from "../../utils/input/Input";
 import Button from "../../utils/button/Button";
 import {registration} from "../../actions/reg";
+import {NavLink} from "react-router-dom";
 
 const Registration = () => {
 	const [email, setEmail] = useState('')
@@ -12,7 +13,7 @@ const Registration = () => {
 	const [surname, setSurname] = useState('')
 
 	return (
-		<div className='registration-form'>
+		<div className='auth-form'>
 			<img src={logo} alt='' className='logo' width='43px' height='27px'/>
 			<span className="title">Create an account</span>
 			<form>
@@ -32,7 +33,7 @@ const Registration = () => {
 					       type='password'
 					       placeholder='Password'/>
 				</div>
-				<div className="login_button">Already have an account?</div>
+				<span className="redirect_button" ><NavLink to={'/login'}>Already have an account?</NavLink></span>
 			</form>
 			<span onClick={() => registration(email,password)}>
 				<Button>Registration</Button>
