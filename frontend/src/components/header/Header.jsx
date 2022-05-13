@@ -2,10 +2,12 @@ import React from 'react';
 import logo from '../../assets/img/Vector.svg'
 import './header.scss'
 import {NavLink} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {logout} from "../../reducers/userReducer";
 
 const Header = () => {
 	const isAuth = useSelector(state => state.user.isAuth)
+	const dispatch = useDispatch()
 
 	return (
 		<div className='header'>
@@ -18,7 +20,7 @@ const Header = () => {
 			<div className="navbar">
 				{!isAuth && <span className="Home"><NavLink to={'/home'}>Home</NavLink></span>}
 				{!isAuth && <span className="Storage"><NavLink to='/login'>Storage</NavLink></span>}
-				{isAuth && <span className="Home">Log out</span>}
+				{isAuth && <span className="Home" onClick={()=>dispatch(logout())}>Log out</span>}
 			</div>
 		</div>
 	);
