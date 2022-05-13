@@ -15,6 +15,7 @@ function App() {
 	useEffect(()=>{
 		dispatch(auth())
 	},[])
+
 	return (
 		<div className="app">
 			<BrowserRouter>

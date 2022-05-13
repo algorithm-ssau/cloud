@@ -6,8 +6,10 @@ const {check, validationResult} = require("express-validator")
 const router = new Router()
 const jwt = require('jsonwebtoken')
 const authMiddleware = require('../middleware/auth.middleware')
+const fileService = require('../services/fileService')
+const File = require('../models/File')
 
-router.post('/authorization',
+router.post('/registration',
 	[
 		check('email', "Uncorrect email").isEmail(),
 		check('password', 'Password must be longer than 3 and shorter than 12').isLength({min: 3, max: 12})
@@ -30,6 +32,7 @@ router.post('/authorization',
 			const hashPassword = await bcrypt.hash(password, 15)
 			const user = new User({email, password: hashPassword})
 			await user.save()
+			await fileService.createDir(new File({user:user.id, name: ''}))
 
 			return res.json({message: "User was created"})
 		} catch (e) {
