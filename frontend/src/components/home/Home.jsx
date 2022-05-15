@@ -1,6 +1,6 @@
 import React from 'react';
 import './home.scss'
-import Button from "../../utils/button/Button";
+//import MyButton from "../../utils/button/MyButton";
 import diskLogo from '../../assets/img/disk.svg'
 import {NavLink} from "react-router-dom";
 
@@ -10,7 +10,7 @@ const Home = () => {
 			<div className="offer_container">
 				<div className="offer_title">Modern, simple and secure
 					storage for your files </div>
-				<NavLink to={'/login'}><Button>Try it for free!</Button></NavLink>
+				<NavLink to={'/login'}><button>Try it for free!</button></NavLink>
 			</div>
 			<img src={diskLogo} alt='' className='diskLogo'/>
 		</div>

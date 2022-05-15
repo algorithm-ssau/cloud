@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './authorization.scss'
 import logo from '../../assets/img/Vector.svg'
 import Input from "../../utils/input/Input";
-import Button from "../../utils/button/Button";
+import MyButton from "../../utils/button/MyButton";
 import {login, registration} from "../../actions/reg";
 import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
@@ -30,7 +30,7 @@ const Login = () => {
 				<span className="redirect_button"><NavLink to={'/registration'}>Register</NavLink></span>
 			</form>
 			<span onClick={() => dispatch(login(email,password))}>
-				<Button>Log in</Button>
+				<MyButton>Log in</MyButton>
 			</span>
 		</div>
 	);
