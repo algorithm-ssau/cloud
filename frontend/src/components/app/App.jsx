@@ -18,26 +18,30 @@ function App() {
 	}, [])
 
 	return (
-		<div className="app">
-			<BrowserRouter>
-				<Header/>
-				{!isAuth ?
-					<Switch>
-						{/*<Route path='/home' component={Home}/>*/}
-						<Route path='/registration' component={Registration}/>
-						<Route path='/login' component={Login}/>
-						<Redirect to='/login'/>
-					</Switch>
-					:
-					<Switch>
-						{/*<Route path='/home' component={Home}/>*/}
-						<Route exact path='/' component={Disk}/>
-						<Redirect to='/'/>
-					</Switch>
 
-				}
-			</BrowserRouter>
-		</div>
+		<BrowserRouter>
+			<div className="app">
+				<Header/>
+				<div className="wrap">
+					{!isAuth ?
+						<Switch>
+							{/*<Route path='/home' component={Home}/>*/}
+							<Route path='/registration' component={Registration}/>
+							<Route path='/login' component={Login}/>
+							<Redirect to='/login'/>
+						</Switch>
+						:
+						<Switch>
+							{/*<Route path='/home' component={Home}/>*/}
+							<Route exact path='/' component={Disk}/>
+							<Redirect to='/'/>
+						</Switch>
+
+					}
+				</div>
+			</div>
+		</BrowserRouter>
+
 	);
 }
 

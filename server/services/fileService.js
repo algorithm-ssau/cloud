@@ -1,5 +1,4 @@
 const fs = require('fs')
-const File = require('../models/File')
 const config = require('config')
 
 class FileService {
@@ -12,7 +11,7 @@ class FileService {
 					fs.mkdirSync(filePath)
 					return resolve({message: 'File was created'})
 				} else {
-					return reject({message: "File already exist"})
+					return reject({message: "File is already exist"})
 				}
 			} catch (e) {
 				return reject({message: 'File error'})

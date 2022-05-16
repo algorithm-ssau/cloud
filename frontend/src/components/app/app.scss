@@ -5,32 +5,39 @@ a, a:visited, a:hover, a:active {
   text-decoration: none;
 }
 
-html{
-  min-height: 100%;
-}
-
 *{
   margin: 0;
   padding: 0;
 }
 
-body{
+html{
   background: $backgroundColor no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100%;
+  height: auto;
 }
 
-.app{
-  width: 970px;
-  height: 100vh;
-  //display: flex;
-  //flex-direction: column;
-  //align-items: center;
-  position: relative;
+body{
+  min-height: 100vh;
 }
 
 #root{
+  width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app {
+  height: 100%;
+  width: 970px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+
 }
