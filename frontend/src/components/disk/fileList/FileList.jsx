@@ -5,7 +5,7 @@ import ('./fileList.scss')
 
 const FileList = () => {
 
-	const files = useSelector(state => state.files.files).map(file=><File file={file} key={file.id}/>)
+	const files = useSelector(state => state.files.files).map(file => <File key={file.id} file={file}/>)
 
 	return (
 		<div className='fileList'>

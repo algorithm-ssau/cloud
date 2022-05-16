@@ -11,13 +11,14 @@ a, a:visited, a:hover, a:active {
 }
 
 html{
-  background: $backgroundColor no-repeat;
-  height: auto;
+  height: 100%;
 }
 
 body{
-  min-height: 100vh;
+  height: 100%;
+  background: $backgroundColor no-repeat fixed;
 }
+
 
 #root{
   width: 100%;
