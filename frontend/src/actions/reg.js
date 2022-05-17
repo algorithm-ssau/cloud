@@ -3,13 +3,13 @@ import {setUser} from "../reducers/userReducer";
 
 export const registration = async (email, password) => {
 	try {
-		const response = await axios.post('http://localhost:8080/api/auth/authorization', {
+		const response = await axios.post('http://localhost:8080/api/auth/registration', {
 			email,
 			password
 		})
 		alert(response.data.message)
 	} catch (e) {
-		alert(e.response.data.message)
+		alert(e.response.data)
 	}
 }
 

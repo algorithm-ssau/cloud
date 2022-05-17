@@ -2,3 +2,4 @@ diagram.drawio
 .idea
 server/node_modules
 frontend/node_modules
+server/files
