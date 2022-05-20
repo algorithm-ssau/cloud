@@ -9,9 +9,9 @@ const app = express()
 const PORT = config.get('port') || 8080
 const cors = require('./middleware/cors.middleware')
 
+app.use(fileUpload({}))
 app.use(cors)
 app.use(express.json())
-app.use(fileUpload({}))
 app.use('/api/auth',authRouter)
 app.use('/api/files',fileRouter)
 

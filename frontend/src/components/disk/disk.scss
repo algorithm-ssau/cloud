@@ -7,15 +7,49 @@
   width: 100%;
 
   &_btns {
+    display: flex;
+
     button {
+      cursor: pointer;
       color: white;
       background: none;
       border-radius: 20px;
       border: 1px solid white;
       padding: 5px 10px;
       font-size: 15px;
+      margin-right: 10px;
     }
   }
+
+  &_upload {
+    display: flex;
+  }
+
+  &_upload-input {
+    display: none;
+  }
+
+  &_upload-label {
+    cursor: pointer;
+    align-self: center;
+    color: white;
+    border-radius: 20px;
+    border: 1px solid white;
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+}
+
+.dragArea {
+  color: white;
+  font-size: 20px;
+  border: 1px white dashed;
+  width: 100%;
+  height: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .popup {
@@ -59,7 +93,7 @@
     cursor: pointer;
   }
 
-  &_close{
+  &_close {
     color: crimson;
   }
 
