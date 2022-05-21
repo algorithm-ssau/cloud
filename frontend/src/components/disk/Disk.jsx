@@ -5,12 +5,14 @@ import './disk.scss'
 import FileList from "./fileList/FileList";
 import Popup from "./popup/Popup";
 import {setCurrentDir, setPopupDisplay} from "../../reducers/fileReducer";
+import File from "./fileList/file/File";
 
 const Disk = () => {
 	const dispatch = useDispatch()
 	const currentDir = useSelector(state => state.files.currentDir)
 	const dirStack = useSelector(state => state.files.dirStack)
 	const [dragEnter, setDragEnter] = useState(false)
+	const files = useSelector(state => state.files.files).map(file => <File key={file.id} file={file}/>)
 
 	useEffect(() => {
 		dispatch(getFiles(currentDir))
@@ -30,19 +32,19 @@ const Disk = () => {
 		files.forEach(file => dispatch(uploadFile(file, currentDir)))
 	}
 
-	function onDragEnterHandler(event){
+	function onDragEnterHandler(event) {
 		event.preventDefault()
 		event.stopPropagation()
 		setDragEnter(true)
 	}
 
-	function onDragEnterLeave(event){
+	function onDragEnterLeave(event) {
 		event.preventDefault()
 		event.stopPropagation()
 		setDragEnter(false)
 	}
 
-	function dropHandler(event){
+	function dropHandler(event) {
 		event.preventDefault()
 		event.stopPropagation()
 		let files = [...event.dataTransfer.files]
@@ -51,10 +53,13 @@ const Disk = () => {
 	}
 
 	return (dragEnter ?
-			<div className='dragArea' onDrop={dropHandler} onDragEnter={onDragEnterHandler} onDragLeave={onDragEnterLeave} onDragOver={onDragEnterHandler} >
+			<div className='dragArea' onDrop={dropHandler} onDragEnter={onDragEnterHandler}
+			     onDragLeave={onDragEnterLeave}
+			     onDragOver={onDragEnterHandler}>
 				Drag your files here
 			</div>
-			: <div className='disk' onDragEnter={onDragEnterHandler} onDragLeave={onDragEnterLeave} onDragOver={onDragEnterHandler}>
+			: <div className='disk' onDragEnter={onDragEnterHandler} onDragLeave={onDragEnterLeave}
+			       onDragOver={onDragEnterHandler}>
 				<div className="disk_btns">
 					<button className='disk_create' onClick={() => showPopupHandler()}>Create</button>
 					{dirStack.length === 0 ? null :
@@ -67,6 +72,7 @@ const Disk = () => {
 				</div>
 				<FileList/>
 				<Popup/>
+
 			</div>
 	);
 };
