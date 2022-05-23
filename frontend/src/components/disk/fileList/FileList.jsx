@@ -3,18 +3,19 @@ import {useSelector} from "react-redux";
 import File from "./file/File";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 
+
 import ('./fileList.scss')
 
-const FileList = () => {
+const FileList = ({sort, setSort}) => {
 
 	const files = useSelector(state => state.files.files)
 
 	return (
 		<div className='fileList'>
 			<div className="fileList_header">
-				<div className="fileList_name">Name</div>
-				<div className="fileList_date">Date</div>
-				<div className="fileList_size">Size</div>
+				<div className="fileList_name" onClick={()=> setSort('name')}>Name {sort==='name'? <i className="fa-solid fa-arrow-down"></i> : ''}</div>
+				<div className="fileList_date" onClick={()=> setSort('date')}>Date {sort==='date'? <i className="fa-solid fa-arrow-down"></i> : ''}</div>
+				<div className="fileList_size" onClick={()=> setSort('size')}>Size {sort==='size'? <i className="fa-solid fa-arrow-down"></i> : ''}</div>
 			</div>
 			<TransitionGroup>
 				{files.map(file =>
