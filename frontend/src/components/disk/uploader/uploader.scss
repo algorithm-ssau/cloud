@@ -1,0 +1,70 @@
+.uploader{
+  color: black;
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 0 10px 10px 0;
+  border-radius: 20px;
+  padding: 10px 15px;
+  overflow-y: auto;
+
+  &_header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  &_close {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: crimson;
+  }
+}
+
+.upload-file{
+  font-size: 14px;
+  border: 1px solid darkgrey;
+  padding: 7px 10px;
+  border-radius: 15px;
+
+  &_header{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_delete {
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  &_progress-background {
+    padding: 1px;
+    margin-top: 5px;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  &_progress-bar {
+    height: 15px;
+    border-radius: 30px;
+    background-image:
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+    background-color: #EF476F;
+    transition: 0.1s linear;
+    //transition-property: width, background-color;
+  }
+}
+
+
+.upload-file:not(:last-child){
+  margin-bottom: 5px;
+}

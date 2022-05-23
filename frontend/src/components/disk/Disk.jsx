@@ -6,6 +6,7 @@ import FileList from "./fileList/FileList";
 import Popup from "./popup/Popup";
 import {setCurrentDir, setPopupDisplay} from "../../reducers/fileReducer";
 import File from "./fileList/file/File";
+import Uploader from "./uploader/Uploader";
 
 const Disk = () => {
 	const dispatch = useDispatch()
@@ -72,7 +73,7 @@ const Disk = () => {
 				</div>
 				<FileList/>
 				<Popup/>
-
+				<Uploader/>
 			</div>
 	);
 };

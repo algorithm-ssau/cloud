@@ -4,8 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {setPopupDisplay} from "../../../reducers/fileReducer";
 import {createDir} from "../../../actions/file";
 
-import ('./popup.scss')
-
 const Popup = () => {
 	const [dirName, setDirname] = useState('')
 	const popupDisplay = useSelector(state=>state.files.popupDisplay)
