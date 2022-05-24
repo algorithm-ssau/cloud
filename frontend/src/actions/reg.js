@@ -1,21 +1,28 @@
 import axios from 'axios'
 import {setUser} from "../reducers/userReducer";
+import {hideLoader, showLoader} from "../reducers/loaderReducer";
 
-export const registration = async (email, password) => {
-	try {
-		const response = await axios.post('http://localhost:8080/api/auth/registration', {
-			email,
-			password
-		})
-		alert(response.data.message)
-	} catch (e) {
-		alert(e.response.data)
+export const registration = (email, password) => {
+	return async dispatch => {
+		try {
+			dispatch(showLoader())
+			const response = await axios.post('http://localhost:8080/api/auth/registration', {
+				email,
+				password
+			})
+			alert(response.data.message)
+		} catch (e) {
+			alert(e.response.data)
+		} finally {
+			dispatch(hideLoader())
+		}
 	}
 }
 
 export const login = (email, password) => {
 	return async dispatch => {
 		try {
+			dispatch(showLoader())
 			const response = await axios.post('http://localhost:8080/api/auth/login', {
 				email,
 				password
@@ -24,6 +31,8 @@ export const login = (email, password) => {
 			dispatch(setUser(response.data.user))
 		} catch (e) {
 			alert(e.response.data.message)
+		} finally {
+			dispatch(hideLoader())
 		}
 	}
 }

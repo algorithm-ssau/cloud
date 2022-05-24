@@ -5,12 +5,20 @@ import Input from "../../utils/input/Input";
 import MyButton from "../../utils/button/MyButton";
 import {registration} from "../../actions/reg";
 import {NavLink} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import Loader from "../../utils/loader/Loader";
 
 const Registration = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [name, setName] = useState('')
 	const [surname, setSurname] = useState('')
+	const dispatch = useDispatch()
+	const loader = useSelector(state => state.loader.loader)
+
+	if (loader) {
+		return <Loader/>
+	}
 
 	return (
 		<div className='auth-form'>
@@ -35,7 +43,7 @@ const Registration = () => {
 				</div>
 				<span className="redirect_button" ><NavLink to={'/login'}>Already have an account?</NavLink></span>
 			</form>
-			<span onClick={() => registration(email,password)}>
+			<span onClick={() => dispatch(registration(email,password))}>
 				<MyButton>Registration</MyButton>
 			</span>
 		</div>

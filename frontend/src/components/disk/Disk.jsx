@@ -7,6 +7,7 @@ import Popup from "./popup/Popup";
 import {setCurrentDir, setPopupDisplay} from "../../reducers/fileReducer";
 import File from "./fileList/file/File";
 import Uploader from "./uploader/Uploader";
+import Loader from "../../utils/loader/Loader";
 
 const Disk = () => {
 	const dispatch = useDispatch()
@@ -57,11 +58,7 @@ const Disk = () => {
 	}
 
 	if (loader) {
-		return <div className='loader'>
-			<div className="lds-heart">
-				<div></div>
-			</div>
-		</div>
+		return <Loader/>
 	}
 
 	return (dragEnter ?

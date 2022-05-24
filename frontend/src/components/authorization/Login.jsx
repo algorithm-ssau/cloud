@@ -5,12 +5,18 @@ import Input from "../../utils/input/Input";
 import MyButton from "../../utils/button/MyButton";
 import {login, registration} from "../../actions/reg";
 import {NavLink} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import Loader from "../../utils/loader/Loader";
 
 const Login = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const dispatch = useDispatch()
+	const loader = useSelector(state => state.loader.loader)
+
+	if (loader) {
+		return <Loader/>
+	}
 
 	return (
 		<div className='auth-form'>
