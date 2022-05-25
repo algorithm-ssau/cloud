@@ -10,6 +10,10 @@ const FileList = ({sort, setSort}) => {
 
 	const files = useSelector(state => state.files.files)
 
+	if(files.length === 0){
+		return <div className='loader' style={{fontSize : '25px'}}>This directory is empty.</div>
+	}
+
 	return (
 		<div className='fileList'>
 			<div className="fileList_header">

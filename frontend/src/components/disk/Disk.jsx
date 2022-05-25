@@ -70,14 +70,18 @@ const Disk = () => {
 			: <div className='disk' onDragEnter={onDragEnterHandler} onDragLeave={onDragEnterLeave}
 			       onDragOver={onDragEnterHandler}>
 				<div className="disk_btns">
-					<button className='disk_create' onClick={() => showPopupHandler()}>Create</button>
-					{dirStack.length === 0 ? null :
-						<button className='disk_back' onClick={() => clickBackHandler()}>Back</button>}
-
-					<div className="disk_upload">
-						<label htmlFor="disk_upload-input" className="disk_upload-label">Choose a file</label>
-						<input multiple={true} onChange={(event) => fileUploadHandler(event)} type="file"
-						       id="disk_upload-input" className="disk_upload-input"/>
+					{dirStack.length === 0 ? <div/> :
+						<button className='disk_back' onClick={() => clickBackHandler()}><i
+							className="fa-solid fa-arrow-left"></i></button>}
+					<div className="disk_btns_container">
+						<button className='disk_create' onClick={() => showPopupHandler()}><i
+							className="fa-solid fa-folder-plus"></i></button>
+						<div className="disk_upload">
+							<label htmlFor="disk_upload-input" className="disk_upload-label"><i
+								className="fa-solid fa-file-arrow-up"></i></label>
+							<input multiple={true} onChange={(event) => fileUploadHandler(event)} type="file"
+							       id="disk_upload-input" className="disk_upload-input"/>
+						</div>
 					</div>
 				</div>
 				<FileList sort={sort} setSort={setSort}/>
