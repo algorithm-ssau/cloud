@@ -13,6 +13,32 @@
   font-family: 'Montserrat',sans-serif;
   color: white;
 
+  .search_container{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+
+    .fa-magnifying-glass{
+      color: #858484;
+      position: absolute;
+      min-width: 20px;
+      padding: 7px;
+    }
+
+    .navbar_search{
+      height: 24px;
+      padding-left: 30px;
+      font-size: 16px;
+      border-radius: 15px;
+      width: 100%;
+    }
+  }
+
+  &_logo{
+    display: flex;
+    align-items: center;
+  }
+
   .header_logo_title{
     font-weight: 700;
     font-size: 31px;
