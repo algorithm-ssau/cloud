@@ -1,39 +1,39 @@
 @import "../../../../utils/colors";
 
-.file{
+.file {
   margin: 10px 0;
   border-bottom: 1px solid white;
   display: grid;
-  grid-template-columns: 1fr 4fr repeat(4,1fr);
+  grid-template-columns: 1fr 4fr repeat(4, 1fr);
   align-items: center;
   padding-bottom: 10px;
 
-  &_img{
+  &_img {
     justify-self: center;
     font-size: 35px;
     transition: 1s;
   }
 
-  &_name{
+  &_name {
     grid-column-start: 2;
     transition: 1s;
   }
 
-  &:hover &_name, &:hover &_img{
+  &:hover &_name, &:hover &_img {
     color: $color;
   }
 
-  &_date{
+  &_date {
     grid-column-start: 5;
     justify-self: center;
   }
 
-  &_size{
+  &_size {
     grid-column-start: 6;
     justify-self: center;
   }
 
-  button{
+  button {
     cursor: pointer;
     display: none;
     font-size: 15px;
@@ -48,23 +48,70 @@
     transition: 1s;
   }
 
-  button:hover{
+  button:hover {
     color: $color;
     border: 1px solid $color;
   }
 
-  &:hover &_date, &:hover &_size{
+  &:hover &_date, &:hover &_size {
     display: none;
   }
 
-  &:hover &_download{
+  &:hover &_download {
     grid-column-start: 5;
     display: block;
   }
 
-  &:hover &_delete{
+  &:hover &_delete {
     grid-column-start: 6;
     display: block;
   }
 
+}
+
+.file-plate {
+  width: 135px;
+  height:150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &_img {
+    font-size: 80px;
+  }
+
+  &_name {
+    font-size: 20px;
+    margin: 10px 0 5px 0;
+  }
+
+  &_btns {
+    display: none;
+  }
+
+  &:hover &_btns {
+    display: flex;
+  }
+
+  &:hover &_name{
+    display: none;
+  }
+
+  button {
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    background: inherit;
+    border: none;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    justify-self: center;
+    transition: 1s;
+  }
+
+  button:hover, &:hover &_img {
+    color: $color;
+  }
 }

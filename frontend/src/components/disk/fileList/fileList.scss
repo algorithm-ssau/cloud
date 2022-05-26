@@ -1,7 +1,7 @@
 .fileList{
   margin: 50px 0 20px 0;
   font-size: 20px;
-
+  padding-bottom: 15px;
 
   &_header{
     display: grid;
@@ -31,8 +31,6 @@
   }
 }
 
-
-
 .file-enter-active{
   animation: file-enter 500ms forwards;
 }
@@ -46,4 +44,10 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.filePlate{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px 0 20px 0;
 }

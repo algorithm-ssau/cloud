@@ -4,7 +4,7 @@ import {createDir, getFiles, uploadFile} from "../../actions/file";
 import './disk.scss'
 import FileList from "./fileList/FileList";
 import Popup from "./popup/Popup";
-import {setCurrentDir, setCurrentDirName, setPopupDisplay} from "../../reducers/fileReducer";
+import {setCurrentDir, setCurrentDirName, setPopupDisplay, setView} from "../../reducers/fileReducer";
 import Uploader from "./uploader/Uploader";
 import Loader from "../../utils/loader/Loader";
 
@@ -15,6 +15,7 @@ const Disk = () => {
 	const dirStackName = useSelector(state => state.files.dirStackName)
 	const [dragEnter, setDragEnter] = useState(false)
 	const currentDirName = useSelector(state => state.files.currentDirName)
+	const view = useSelector(state => state.files.view)
 	const loader = useSelector(state => state.loader.loader)
 	const [sort, setSort] = useState('type')
 
@@ -71,6 +72,7 @@ const Disk = () => {
 			</div>
 			: <div className='disk' onDragEnter={onDragEnterHandler} onDragLeave={onDragEnterLeave}
 			       onDragOver={onDragEnterHandler}>
+
 				<div className="disk_dir_title">{currentDirName}</div>
 
 				<div className="disk_btns">
@@ -86,6 +88,10 @@ const Disk = () => {
 							<input multiple={true} onChange={(event) => fileUploadHandler(event)} type="file"
 							       id="disk_upload-input" className="disk_upload-input"/>
 						</div>
+					</div>
+					<div className="disk_view_container">
+						<button className='disk_list' style={view === 'list' ? {color:'#EF476FFF'} : {color:'#fff'}} onClick={()=> dispatch(setView('list'))}><i className="fa-solid fa-bars"/></button>
+						<button className='disk_plate' style={view === 'plate' ? {color:'#EF476FFF'} : {color:'#fff'}} onClick={()=> dispatch(setView('plate'))}><i className="fa-solid fa-border-all"/></button>
 					</div>
 				</div>
 
