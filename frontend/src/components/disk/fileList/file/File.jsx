@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {pushToStack, setCurrentDir} from "../../../../reducers/fileReducer";
+import {pushToStack, pushToStackName, setCurrentDir, setCurrentDirName} from "../../../../reducers/fileReducer";
 import {deleteFile, downloadFile} from "../../../../actions/file";
 import sizeFormat from "../../../../utils/sizeFormat";
 
@@ -9,11 +9,14 @@ import ('./file.scss')
 const File = ({file}) => {
 	const dispatch = useDispatch()
 	const currentDir = useSelector(state => state.files.currentDir)
+	const currentDirName = useSelector(state => state.files.currentDirName)
 
 	function openDirHandler() {
 		if (file.type === 'dir') {
 			dispatch(pushToStack(currentDir))
+			dispatch(pushToStackName(currentDirName))
 			dispatch(setCurrentDir(file._id))
+			dispatch(setCurrentDirName(file.name))
 		}
 	}
 

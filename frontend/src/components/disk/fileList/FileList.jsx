@@ -10,16 +10,19 @@ const FileList = ({sort, setSort}) => {
 
 	const files = useSelector(state => state.files.files)
 
-	if(files.length === 0){
-		return <div className='loader' style={{fontSize : '25px'}}>Files not found.</div>
+	if (files.length === 0) {
+		return <div className='loader' style={{fontSize: '25px'}}>Files not found.</div>
 	}
 
 	return (
 		<div className='fileList'>
 			<div className="fileList_header">
-				<div className="fileList_name" onClick={()=> setSort('name')}>Name {sort==='name'? <i className="fa-solid fa-arrow-down"></i> : ''}</div>
-				<div className="fileList_date" onClick={()=> setSort('date')}>Date {sort==='date'? <i className="fa-solid fa-arrow-down"></i> : ''}</div>
-				<div className="fileList_size" onClick={()=> setSort('size')}>Size {sort==='size'? <i className="fa-solid fa-arrow-down"></i> : ''}</div>
+				<div className="fileList_name" onClick={() => setSort('name')}>Name {sort === 'name' ?
+					<i className="fa-solid fa-arrow-down"/> : ''}</div>
+				<div className="fileList_date" onClick={() => setSort('date')}>Date {sort === 'date' ?
+					<i className="fa-solid fa-arrow-down"/> : ''}</div>
+				<div className="fileList_size" onClick={() => setSort('size')}>Size {sort === 'size' ?
+					<i className="fa-solid fa-arrow-down"/> : ''}</div>
 			</div>
 			<TransitionGroup>
 				{files.map(file =>

@@ -8,6 +8,12 @@
   height: 100%;
   margin-bottom: 20px;
 
+  &_dir_title{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+  }
+
   &_btns {
     display: flex;
     justify-content: space-between;

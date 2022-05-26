@@ -37,7 +37,7 @@ const Header = () => {
 						<span className="header_logo_title">.cloud</span>
 					</NavLink>
 					{isAuth ?
-						<div className='search_container'><i className="fa-solid fa-magnifying-glass"></i>
+						<div className='search_container'><i className="fa-solid fa-magnifying-glass"/>
 							<input
 								type='text' placeholder='Search...'
 								className='navbar_search'
