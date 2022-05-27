@@ -1,5 +1,5 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
-import {userReducer} from "./userReducer";
+import userReducer from "./userReducer";
 import {fileReducer} from "./fileReducer";
 import {uploadReducer} from "./uploadReducer";
 import {composeWithDevTools} from "redux-devtools-extension";

@@ -2,5 +2,6 @@
   "port": 8080,
   "databaseURL": "mongodb+srv://user:VhOHdgYXqmHdlfzs@cloud-cluster.hkxgt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   "secretKey": "valet-egr",
-  "filePath": "/Users/betterthings/Documents/web/study/mern_cv/server/files"
+  "filePath": "/Users/betterthings/Documents/web/study/mern_cv/server/files",
+  "staticPath": "/Users/betterthings/Documents/web/study/mern_cv/server/static"
 }

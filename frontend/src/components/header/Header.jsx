@@ -1,18 +1,24 @@
 import React, {useState} from 'react';
 import logo from '../../assets/img/Vector.svg'
+import avatarLogo from '../../assets/img/default_avatar.svg'
 import './header.scss'
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../reducers/userReducer";
 import {getFiles, searchFile} from "../../actions/file";
 import {showLoader} from "../../reducers/loaderReducer";
+import {API_URL} from '../../config'
 
 const Header = () => {
 		const isAuth = useSelector(state => state.user.isAuth)
 		const currentDir = useSelector(state => state.files.currentDir)
+		const currentUser = useSelector(state => state.user.currentUser)
 		const dispatch = useDispatch()
 		const [searchName, setSearchName] = useState('')
 		const [searchTimeout, setSearchTimeout] = useState(false)
+
+		const avatar = currentUser.avatar ? `${API_URL + currentUser.avatar}` : avatarLogo
+
 
 		function setSearchHandler(event) {
 			setSearchName(event.target.value)
@@ -24,7 +30,7 @@ const Header = () => {
 				setSearchTimeout(setTimeout(() => {
 					dispatch(searchFile(event.target.value))
 				}, 500, event.target.value))
-			} else{
+			} else {
 				dispatch(getFiles())
 			}
 		}
@@ -49,6 +55,9 @@ const Header = () => {
 					{!isAuth && <span className="Home"><NavLink to={'/home'}>Home</NavLink></span>}
 					{!isAuth && <span className="Storage"><NavLink to='/login'>Storage</NavLink></span>}
 					{isAuth && <span className="Home" onClick={() => dispatch(logout())}>Log out</span>}
+					{isAuth && <NavLink to='/profile'>
+						<img className="navbar_avatar" src={avatar} alt=""/>
+					</NavLink>}
 				</div>
 			</div>
 		);

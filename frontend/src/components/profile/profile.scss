@@ -1,0 +1,19 @@
+@import '../../utils/colors';
+
+.profile {
+  display: flex;
+  flex-direction: column;
+
+  &_avatar {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    &_img{
+      align-self: center;
+      height: 300px;
+      width: 300px;
+      border-radius: 50%;
+      border: 1px solid $color;
+    }
+  }
+}

@@ -3,6 +3,7 @@ const File = require('../models/File')
 const User = require('../models/User')
 const fs = require('fs')
 const config = require('config')
+const Uuid = require('uuid')
 
 class FileController {
 	async createDir(req, res) {
@@ -31,18 +32,18 @@ class FileController {
 		try {
 			const {sort} = req.query
 			let files
-			switch (sort){
+			switch (sort) {
 				case 'name':
-					files= await File.find({user: req.user.id, parent: req.query.parent}).sort({name:1})
+					files = await File.find({user: req.user.id, parent: req.query.parent}).sort({name: 1})
 					break
 				case 'type':
-					files= await File.find({user: req.user.id, parent: req.query.parent}).sort({type:1})
+					files = await File.find({user: req.user.id, parent: req.query.parent}).sort({type: 1})
 					break
 				case 'size':
-					files= await File.find({user: req.user.id, parent: req.query.parent}).sort({size:1})
+					files = await File.find({user: req.user.id, parent: req.query.parent}).sort({size: 1})
 					break
 				default:
-					files= await File.find({user: req.user.id, parent: req.query.parent})
+					files = await File.find({user: req.user.id, parent: req.query.parent})
 					break
 			}
 			return res.json(files)
@@ -79,7 +80,7 @@ class FileController {
 
 			const type = file.name.split('.').pop()
 			let filePath = file.name
-			if(parent){
+			if (parent) {
 				filePath = parent.Path + '/' + file.name
 			}
 			const dbFile = new File({
@@ -115,30 +116,58 @@ class FileController {
 		}
 	}
 
-	async deleteFile(req,res){
-		try{
-			const file = await File.findOne({_id:req.query.id,user:req.user.id})
-			if(!file){
-				return res.status(400).json({message:'File not found'})
+	async deleteFile(req, res) {
+		try {
+			const file = await File.findOne({_id: req.query.id, user: req.user.id})
+			if (!file) {
+				return res.status(400).json({message: 'File not found'})
 			}
 			fileService.deleteFile(file)
 			await file.remove()
-			return res.json({message:'File was successfully deleted'})
+			return res.json({message: 'File was successfully deleted'})
 		} catch (e) {
 			console.log(e)
-			return res.status(400).json({message:'Directory is not empty'})
+			return res.status(400).json({message: 'Directory is not empty'})
 		}
 	}
 
-	async searchFile(req,res){
-		try{
+	async searchFile(req, res) {
+		try {
 			const searchName = req.query.search
-			let files = await File.find({user:req.user.id})
+			let files = await File.find({user: req.user.id})
 			files = files.filter(file => file.name.includes(searchName))
 			return res.json(files)
 		} catch (e) {
 			console.log(e)
-			return res.status(400).json({message:'Search error'})
+			return res.status(400).json({message: 'Search error'})
+		}
+	}
+
+	async uploadAvatar(req, res) {
+		try {
+			const avatar = req.files.file
+			const user = await User.findById(req.user.id)
+			const avatarName = Uuid.v4() + '.jpg'
+			avatar.mv(config.get('staticPath') + '/' + avatarName)
+			user.avatar = avatarName
+			await user.save()
+			return res.json({message:'Avatar successfully updated'})
+		} catch (e) {
+			console.log(e)
+			return res.status(400).json({message: 'Upload avatar error'})
+		}
+	}
+
+	async deleteAvatar(req, res) {
+		try {
+			const user = await User.findById(req.user.id)
+			fs.unlinkSync(config.get('staticPath')+'/'+user.avatar)
+			user.avatar = null
+			await user.save()
+			return res.json({message:'Avatar successfully deleted'})
+		} catch (e) {
+			console.log(e)
+			return res.status(400).json({message: 'Delete avatar error'})
 		}
 	}
 }
