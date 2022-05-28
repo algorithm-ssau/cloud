@@ -145,13 +145,18 @@ class FileController {
 
 	async uploadAvatar(req, res) {
 		try {
-			const avatar = req.files.file
 			const user = await User.findById(req.user.id)
+			if (user.avatar) {
+				fs.unlinkSync(config.get('staticPath') + '/' + user.avatar)
+				user.avatar = null
+				await user.save()
+			}
+			const avatar = req.files.file
 			const avatarName = Uuid.v4() + '.jpg'
 			avatar.mv(config.get('staticPath') + '/' + avatarName)
 			user.avatar = avatarName
 			await user.save()
-			return res.json({message:'Avatar successfully updated'})
+			return res.json({message: 'Avatar successfully updated'})
 		} catch (e) {
 			console.log(e)
 			return res.status(400).json({message: 'Upload avatar error'})
@@ -161,10 +166,12 @@ class FileController {
 	async deleteAvatar(req, res) {
 		try {
 			const user = await User.findById(req.user.id)
-			fs.unlinkSync(config.get('staticPath')+'/'+user.avatar)
-			user.avatar = null
-			await user.save()
-			return res.json({message:'Avatar successfully deleted'})
+			if (user.avatar) {
+				fs.unlinkSync(config.get('staticPath') + '/' + user.avatar)
+				user.avatar = null
+				await user.save()
+			}
+			return res.json({message: 'Avatar successfully deleted'})
 		} catch (e) {
 			console.log(e)
 			return res.status(400).json({message: 'Delete avatar error'})

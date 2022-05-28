@@ -58,7 +58,6 @@ export const uploadAvatar = (file) => {
 			formData.append('file',file)
 			const response = await axios.post(`${API_URL}api/files/avatar`, formData,
 				{headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
-
 			dispatch(setUser(response.data))
 		} catch (e) {
 			console.log(e)
@@ -66,10 +65,10 @@ export const uploadAvatar = (file) => {
 	}
 }
 
-export const deleteAvatar = (file) => {
+export const deleteAvatar = () => {
 	return async dispatch => {
 		try {
-			const response = await axios.delete(`${API_URL}api/files/avatar`,
+			const response = await axios.delete(`${API_URL}api/files/deleteAvatar`,
 				{headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
 
 			dispatch(setUser(response.data))
