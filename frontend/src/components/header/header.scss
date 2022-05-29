@@ -49,11 +49,10 @@
 
   .navbar{
     height: fit-content;
-    width: 221px;
     display: flex;
     justify-content: flex-end;
-
     font-size: 23px;
+
     span{
       align-self: center;
       margin-left: 30px;
@@ -65,10 +64,14 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      border: 1px $color solid;
     }
   }
   .navbar>*{
     cursor: pointer;
+  }
+
+  .color_name{
+    color: $color;
+    font-weight: inherit;
   }
 }

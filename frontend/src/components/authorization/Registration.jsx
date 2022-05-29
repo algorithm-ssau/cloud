@@ -41,9 +41,9 @@ const Registration = () => {
 					       type='password'
 					       placeholder='Password'/>
 				</div>
-				<span className="redirect_button" ><NavLink to={'/login'}>Already have an account?</NavLink></span>
+				<span className="redirect_button"><NavLink to={'/login'}>Already have an account?</NavLink></span>
 			</form>
-			<span onClick={() => dispatch(registration(email,password))}>
+			<span onClick={() => dispatch(registration(email, password, name, surname))}>
 				<MyButton>Registration</MyButton>
 			</span>
 		</div>

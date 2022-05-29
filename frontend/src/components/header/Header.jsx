@@ -54,7 +54,7 @@ const Header = () => {
 				<div className="navbar">
 					{!isAuth && <span className="Home"><NavLink to={'/home'}>Home</NavLink></span>}
 					{!isAuth && <span className="Storage"><NavLink to='/login'>Storage</NavLink></span>}
-					{isAuth && <span className="Home" onClick={() => dispatch(logout())}>Log out</span>}
+					{isAuth && <span className="Home">Hello, <b className='color_name'>{currentUser.name}</b></span>}
 					{isAuth && <NavLink to='/profile'>
 						<img className="navbar_avatar" src={avatar} alt=""/>
 					</NavLink>}

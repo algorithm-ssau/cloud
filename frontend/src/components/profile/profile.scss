@@ -1,19 +1,79 @@
 @import '../../utils/colors';
 
 .profile {
+  height: 100%;
+  justify-content: center;
   display: flex;
+  color: white;
   flex-direction: column;
+  align-items: center;
+  border-radius: 50%;
+
+
+  &_name {
+    cursor: default;
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+
+  &_logout {
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  &_logout:hover{
+    color: $color;
+  }
+
 
   &_avatar {
     display: flex;
     flex-direction: column;
-    margin: 30px;
-    &_img{
+    margin-bottom: 10px;
+
+    &_img {
       align-self: center;
-      height: 300px;
-      width: 300px;
+      height: 200px;
+      width: 200px;
       border-radius: 50%;
-      border: 1px solid $color;
+    }
+
+    &_btns{
+      z-index: 1;
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .fa-trash{
+      margin-right: 10px;
+    }
+
+    &_btns *{
+      cursor: pointer;
+      font-size: 25px;
+      color: white;
+      border: none;
+      background: none;
+      transition: 1s;
+    }
+
+    &_btns *:hover {
+      color: $color;
+    }
+
+    &:hover &_btns {
+      display: block;
+    }
+
+    &:hover &_img{
+      filter:blur(10px) brightness(70%);
+    }
+
+    &_update{
+      display: none;
     }
   }
 }

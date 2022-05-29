@@ -3,13 +3,15 @@ import {setUser} from "../reducers/userReducer";
 import {hideLoader, showLoader} from "../reducers/loaderReducer";
 import {API_URL} from "../config";
 
-export const registration = (email, password) => {
+export const registration = (email, password, name, surname) => {
 	return async dispatch => {
 		try {
 			dispatch(showLoader())
 			const response = await axios.post(`${API_URL}api/auth/registration`, {
 				email,
-				password
+				password,
+				name,
+				surname
 			})
 			alert(response.data.message)
 		} catch (e) {
@@ -71,6 +73,7 @@ export const deleteAvatar = () => {
 			const response = await axios.delete(`${API_URL}api/files/deleteAvatar`,
 				{headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
 
+			console.log(response.data)
 			dispatch(setUser(response.data))
 		} catch (e) {
 			console.log(e)

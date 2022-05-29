@@ -80,9 +80,11 @@ class FileController {
 
 			const type = file.name.split('.').pop()
 			let filePath = file.name
+			console.log(parent)
 			if (parent) {
-				filePath = parent.Path + '/' + file.name
+				filePath = parent.path + '/' + file.name
 			}
+			console.log(filePath)
 			const dbFile = new File({
 				name: file.name,
 				type,
@@ -156,7 +158,7 @@ class FileController {
 			avatar.mv(config.get('staticPath') + '/' + avatarName)
 			user.avatar = avatarName
 			await user.save()
-			return res.json({message: 'Avatar successfully updated'})
+			return res.json(user)
 		} catch (e) {
 			console.log(e)
 			return res.status(400).json({message: 'Upload avatar error'})
@@ -171,7 +173,7 @@ class FileController {
 				user.avatar = null
 				await user.save()
 			}
-			return res.json({message: 'Avatar successfully deleted'})
+			return res.json(user)
 		} catch (e) {
 			console.log(e)
 			return res.status(400).json({message: 'Delete avatar error'})

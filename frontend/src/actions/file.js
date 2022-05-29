@@ -23,7 +23,7 @@ export function getFiles(dirId,sort) {
 			})
 			dispatch(setFiles(response.data))
 		} catch (e) {
-			alert(e.response.message)
+			alert(e.response?.message)
 		} finally {
 			dispatch(hideLoader())
 		}
@@ -40,6 +40,7 @@ export function createDir(dirId, name) {
 			}, {
 				headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
 			})
+			console.log(dirId)
 			dispatch(addFile(response.data))
 		} catch (e) {
 			alert(e.response.data.message)
@@ -56,6 +57,7 @@ export function uploadFile(file, dirId) {
 			if (dirId) {
 				formData.append('parent', dirId)
 			}
+			console.log(formData.get('parent'))
 			uploadFile = {name: file.name, progress: 0, id: Date.now()}
 			dispatch(showUploader())
 			dispatch(addUploadFile(uploadFile))
@@ -70,6 +72,7 @@ export function uploadFile(file, dirId) {
 				}
 			});
 			dispatch(addFile(response.data))
+			console.log(response.data)
 		} catch (e) {
 			dispatch(removeUploadFile(uploadFile.id))
 			alert(e?.response?.data?.message)
