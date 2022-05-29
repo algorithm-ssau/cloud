@@ -45,6 +45,17 @@
   .header_logo_title{
     font-weight: 700;
     font-size: 31px;
+
+    background: linear-gradient(to right, $color, $color 50%, white 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+  }
+
+  .header_logo_title:hover{
+    background-position: 0 100%;
   }
 
   .navbar{
@@ -56,6 +67,11 @@
     span{
       align-self: center;
       margin-left: 30px;
+      transition: 1s;
+    }
+
+    span:hover{
+      color: $color;
     }
 
     &_avatar{
@@ -69,6 +85,7 @@
   .navbar>*{
     cursor: pointer;
   }
+
 
   .color_name{
     color: $color;

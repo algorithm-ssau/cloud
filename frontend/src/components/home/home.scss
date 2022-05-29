@@ -1,12 +1,10 @@
 .home_container{
   width: 100%;
+  height: 100%;
   color: white;
   display: flex;
   justify-content: space-between;
-
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  align-items: center;
 }
 .offer_container{
   align-self: center;
@@ -18,18 +16,32 @@
 .diskLogo{
   max-width: 370px;
   max-height: 378px;
+  transition: 1s;
+}
+.diskLogo:hover{
+  transform: scale(1.1);
 }
 .offer_title{
   max-width: 502px;
   font-size: 37px;
   line-height: 47px;
 }
-MyButton{
+.button{
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
   margin-top: 35px;
   width: 270px;
   height: 59px;
+  cursor: pointer;
 
   background: linear-gradient(97.86deg, #4B47F9 25.11%, #484FF9 44.04%, #2F86F4 74.89%);
   box-shadow: 0px 4px 50px #3E66F8;
+  border: none;
   border-radius: 20px;
+  transition: 1s;
+}
+
+.button:hover {
+  transform: scale(1.1);
 }

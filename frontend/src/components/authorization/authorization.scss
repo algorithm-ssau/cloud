@@ -1,3 +1,5 @@
+@import "../../utils/colors";
+
 * {
   padding: 0;
   margin: 0;
@@ -32,24 +34,35 @@
     overflow: hidden;
   }
 
-  .redirect_button {
-    display: block;
-    margin-top: 20px;
-    font-weight: 400;
-    font-size: 20px;
-    cursor: pointer;
-    //align-self: flex-end;
+  form{
+    display: flex;
+    flex-direction: column;
 
-    transition: color 0.5s ease;
+    .redirect_button {
+      display: block;
+      margin-top: 20px;
+      font-weight: 400;
+      font-size: 20px;
+      cursor: pointer;
+      align-self: flex-end;
+      transition: 1s;
+    }
+    .redirect_button:hover{
+      color: $color;
+    }
   }
 
 
-  Button{
+  button{
     margin-top: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    transition: background 0.5s ease;
     width: 541px;
     height: 44px;
+    transition: 1s;
+  }
+
+  button:hover{
+    transform: scale(1.1);
   }
 
 }

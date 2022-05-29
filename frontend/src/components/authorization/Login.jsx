@@ -33,7 +33,7 @@ const Login = () => {
 					       type='password'
 					       placeholder='Password'/>
 				</div>
-				<span className="redirect_button"><NavLink to={'/registration'}>Register</NavLink></span>
+				<span className="redirect_button"><NavLink to={'/registration'}>Registration</NavLink></span>
 			</form>
 			<span onClick={() => dispatch(login(email,password))}>
 				<MyButton>Log in</MyButton>

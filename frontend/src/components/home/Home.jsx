@@ -10,7 +10,7 @@ const Home = () => {
 			<div className="offer_container">
 				<div className="offer_title">Modern, simple and secure
 					storage for your files </div>
-				<NavLink to={'/login'}><button>Try it for free!</button></NavLink>
+				<NavLink to={'/login'}><button className='button'>Try it for free!</button></NavLink>
 			</div>
 			<img src={diskLogo} alt='' className='diskLogo'/>
 		</div>
