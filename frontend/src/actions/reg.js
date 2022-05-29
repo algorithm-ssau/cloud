@@ -15,7 +15,7 @@ export const registration = (email, password, name, surname) => {
 			})
 			alert(response.data.message)
 		} catch (e) {
-			alert(e.response.data)
+			alert(e.response.data.message)
 		} finally {
 			dispatch(hideLoader())
 		}
