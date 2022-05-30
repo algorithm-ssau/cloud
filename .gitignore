@@ -1,7 +1,9 @@
-diagram.drawio
 .idea
 server/node_modules
-frontend/node_modules
+
 server/files
 server/static
+
+diagram.drawio
 .DS_Store
+server/.DS_Store
