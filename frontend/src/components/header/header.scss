@@ -70,7 +70,7 @@
       transition: 1s;
     }
 
-    span:hover{
+    span:not(.hello_title):hover{
       color: $color;
     }
 
@@ -86,6 +86,9 @@
     cursor: pointer;
   }
 
+  .hello_title{
+    cursor: default;
+  }
 
   .color_name{
     color: $color;

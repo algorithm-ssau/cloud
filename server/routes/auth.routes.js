@@ -32,7 +32,7 @@ router.post('/registration',
 			const hashPassword = await bcrypt.hash(password, 15)
 			const user = new User({email, password: hashPassword, name, surname})
 			await user.save()
-			await fileService.createDir(new File({user:user.id, name: ''}))
+			await fileService.createDir(req, new File({user:user.id, name: ''}))
 
 			return res.json({message: "User was created"})
 		} catch (e) {
@@ -79,7 +79,7 @@ router.post('/login', async (req, res) => {
 router.get('/auth', authMiddleware,
 	async (req, res) => {
 	try {
-		const user = await User.findOne({id:req.user.id})
+		const user = await User.findOne({_id:req.user.id})
 		const token = jwt.sign({id:user.id},config.get('secretKey'),{expiresIn:'1h'})
 		return res.json(
 			{
